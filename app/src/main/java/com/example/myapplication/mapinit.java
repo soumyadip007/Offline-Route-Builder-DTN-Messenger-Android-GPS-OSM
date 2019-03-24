@@ -64,7 +64,7 @@ public class mapinit extends AppCompatActivity {
         else
         {
             startPoint = new GeoPoint(lastLocation.getLatitude(),lastLocation.getLongitude());
-            //Test
+           //!sr
         }
 
         mapController.setCenter(startPoint);
