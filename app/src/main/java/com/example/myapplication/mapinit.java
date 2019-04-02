@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.ContentValues;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import org.osmdroid.DefaultResourceProxyImpl;
@@ -27,6 +28,8 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 import android.content.Context;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -40,6 +43,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import android.app.Activity;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
 public class mapinit extends AppCompatActivity {
 
     private MapView map;
@@ -48,6 +62,55 @@ public class mapinit extends AppCompatActivity {
     ItemizedIconOverlay<OverlayItem> currentLocationOverlay;
     DefaultResourceProxyImpl resourceProxy;
     private MyLocationOverlay myLocationoverlay;
+
+    ArrayList<OverlayItem> upload()
+    {
+        ArrayList<OverlayItem> overlay=new ArrayList<OverlayItem>();
+        ArrayList<String> longitude=new ArrayList<String>();
+        ArrayList<String> latitude=new ArrayList<String>();
+        ContentValues val;
+        SQLiteDatabase db;
+
+
+        DatabaseSQLite obj=new DatabaseSQLite(this);
+        db=obj.getReadableDatabase();
+
+        String projection[]={"time","lat","longi"};
+
+        Cursor c=db.query("first1",projection,null,null,null,null,null);
+
+
+        c.moveToPosition(0);
+
+        do {
+
+
+            latitude.add(c.getString(1));
+             longitude.add(c.getString(2));
+        }
+        while (c.moveToNext());
+//        if(cur.moveToFirst())
+//        {
+//            do
+//            {
+//                String temp_long=cur.getString(cur.getColumnIndex("longitude"));
+//                String temp_lat=cur.getString(cur.getColumnIndex("latitude"));
+//                longitude.add(temp_long);
+//                latitude.add(temp_lat);
+//            }
+//            while(cur.moveToNext());
+//            cur.close();
+//        }
+        for(int i=0;i<longitude.size();i++)
+        {
+            GeoPoint geo=new GeoPoint(Double.parseDouble(latitude.get(i)),Double.parseDouble(longitude.get(i)));
+            OverlayItem over=new OverlayItem("Here", "Location", geo);
+            Drawable draw=getResources().getDrawable(R.drawable.ic_launcher);
+            over.setMarker(draw);
+            overlay.add(over);
+        }
+        return overlay;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +151,7 @@ public class mapinit extends AppCompatActivity {
         GeoPoint  currentLocation = new GeoPoint(22.5567,88.3022);
         GeoPoint  currentLocation2 = new GeoPoint(22.513365,88.403003);
         OverlayItem myLocationOverlayItem = new OverlayItem("Here", "Current Position", currentLocation);
-        Drawable myCurrentLocationMarker = this.getResources().getDrawable(R.drawable.ic_launcher_background);
+        Drawable myCurrentLocationMarker = this.getResources().getDrawable(R.drawable.ic_launcher);
         myLocationOverlayItem.setMarker(myCurrentLocationMarker);
 
 
