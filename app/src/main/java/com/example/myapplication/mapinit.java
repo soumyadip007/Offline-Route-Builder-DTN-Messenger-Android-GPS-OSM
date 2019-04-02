@@ -91,7 +91,7 @@ public class mapinit extends AppCompatActivity {
         while (c.moveToNext());
 //        if(cur.moveToFirst())
 //        {
-//            do
+//            do.
 //            {
 //                String temp_long=cur.getString(cur.getColumnIndex("longitude"));
 //                String temp_lat=cur.getString(cur.getColumnIndex("latitude"));
