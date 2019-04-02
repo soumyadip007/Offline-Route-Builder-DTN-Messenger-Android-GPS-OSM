@@ -155,5 +155,33 @@ public class mapinit extends AppCompatActivity {
         myLocationOverlayItem.setMarker(myCurrentLocationMarker);
 
 
+        ArrayList<OverlayItem> items = upload();
+        if(items==null)
+            items=new ArrayList<OverlayItem>();
+
+        items.add(myLocationOverlayItem);
+        myLocationOverlayItem = new OverlayItem("Here", "Current Position", currentLocation2);
+        myCurrentLocationMarker = this.getResources().getDrawable(R.drawable.ic_launcher);
+        myLocationOverlayItem.setMarker(myCurrentLocationMarker);
+        items.add(myLocationOverlayItem);
+
+
+        currentLocationOverlay = new ItemizedIconOverlay<OverlayItem>(items,
+                new ItemizedIconOverlay.OnItemGestureListener<OverlayItem>() {
+                    public boolean onItemSingleTapUp(final int index, final OverlayItem item) {
+                        return true;
+                    }
+                    public boolean onItemLongPress(final int index, final OverlayItem item) {
+                        return true;
+                    }
+                }, resourceProxy);
+        map.getOverlays().add(this.currentLocationOverlay);
+
+        //my locations part
+        myLocationoverlay = new MyLocationOverlay(getApplicationContext(), map);
+        myLocationoverlay.enableMyLocation();
+        myLocationoverlay.enableCompass();
+        myLocationoverlay.setDrawAccuracyEnabled(true);
+        map.getOverlays().add(myLocationoverlay);
     }
 }
