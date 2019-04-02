@@ -68,7 +68,7 @@ public class MainActivity extends  MenuDemo{
                 String strDate = " " + mdformat.format(calendar.getTime());
 
 
-                String lat=Double.toString(location.getLongitude());
+                String lat=Double.toString(location.getLatitude());
                 String longi=Double.toString(location.getLongitude());
                 val.put("time",strDate);
                 val.put("lat",lat);
