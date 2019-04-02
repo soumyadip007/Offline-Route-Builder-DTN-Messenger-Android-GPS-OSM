@@ -59,6 +59,14 @@ public class MenuDemo extends AppCompatActivity {
             Toast.makeText(this,"All Deleted", Toast.LENGTH_SHORT).show();
 
         }
+        else if(id==R.id.map)
+        {
+
+            Toast.makeText(this,"Post-Route Builder Activated", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this,mapinit.class));
+
+
+        }
         return super.onOptionsItemSelected(item);
     }
 }
