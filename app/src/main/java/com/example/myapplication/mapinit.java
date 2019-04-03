@@ -107,7 +107,7 @@ public class mapinit extends AppCompatActivity {
         else
         {
             startPoint = new GeoPoint(lastLocation.getLatitude(),lastLocation.getLongitude());
-            //!sr
+
         }
 
         mapController.setCenter(startPoint);
@@ -146,7 +146,7 @@ public class mapinit extends AppCompatActivity {
                 }, resourceProxy);
         map.getOverlays().add(this.currentLocationOverlay);
 
-        //my locations part
+
         myLocationoverlay = new MyLocationOverlay(getApplicationContext(), map);
         myLocationoverlay.enableMyLocation();
         myLocationoverlay.enableCompass();
