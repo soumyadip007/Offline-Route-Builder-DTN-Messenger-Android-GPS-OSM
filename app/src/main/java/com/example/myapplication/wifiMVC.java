@@ -13,7 +13,6 @@ import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -34,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class wifiMVC extends AppCompatActivity {
+public class wifiMVC extends MenuDemo {
 
 
     static final int MESSAGE_READ = 1;
