@@ -1,4 +1,4 @@
-package com.example.wifidirect;
+package com.example.myapplication;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,15 +7,13 @@ import android.net.NetworkInfo;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.widget.Toast;
 
-import com.example.myapplication.MainActivity;
-
 public class WifiDirectBrodcastRcv extends BroadcastReceiver {
 
     private WifiP2pManager pManager;
     private WifiP2pManager.Channel pChannel;
-    private MainActivity mainActivity;
+    private wifiMVC mainActivity;
 
-    public WifiDirectBrodcastRcv(WifiP2pManager pManager, WifiP2pManager.Channel pChannel, MainActivity mainActivity) {
+    public WifiDirectBrodcastRcv(WifiP2pManager pManager, WifiP2pManager.Channel pChannel, wifiMVC mainActivity) {
         this.pManager = pManager;
         this.pChannel = pChannel;
         this.mainActivity = mainActivity;
