@@ -153,4 +153,5 @@ public class mapinit extends AppCompatActivity {
         myLocationoverlay.setDrawAccuracyEnabled(true);
         map.getOverlays().add(myLocationoverlay);
     }
+
 }
