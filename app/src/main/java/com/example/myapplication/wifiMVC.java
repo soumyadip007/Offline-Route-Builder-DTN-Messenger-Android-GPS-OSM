@@ -93,6 +93,24 @@ public class wifiMVC extends MenuDemo {
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, deviceNameArray);
                 listView.setAdapter(adapter);
 
+                final WifiP2pDevice device = deviceArray[0];
+                WifiP2pConfig config = new WifiP2pConfig();
+                config.deviceAddress = device.deviceAddress;
+
+                pManager.connect(pChannel, config, new WifiP2pManager.ActionListener() {
+                    @Override
+                    public void onSuccess() {
+
+                        Toast.makeText(getApplicationContext(), "Auto Connection established with" + device.deviceName, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(int reason) {
+
+                        Toast.makeText(getApplicationContext(), "Auto connection failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
             }
 
             if (peers.size() == 0) {
@@ -123,7 +141,7 @@ public class wifiMVC extends MenuDemo {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_wifi_mvc);
 
         intitialwork();
         exqListner();
