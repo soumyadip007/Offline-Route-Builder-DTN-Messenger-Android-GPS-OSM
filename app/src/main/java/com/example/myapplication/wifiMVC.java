@@ -67,7 +67,19 @@ public class wifiMVC extends MenuDemo {
             return true;
         }
     });
+
+
     WifiP2pManager.PeerListListener peerListListener = new WifiP2pManager.PeerListListener() {
+        int count = 0;
+
+        void disable() {
+            count++;
+        }
+
+        void enable() {
+            count = 0;
+        }
+
         @Override
         public void onPeersAvailable(WifiP2pDeviceList peerlist) {
 
@@ -78,7 +90,6 @@ public class wifiMVC extends MenuDemo {
                 deviceNameArray = new String[peerlist.getDeviceList().size()];
                 deviceArray = new WifiP2pDevice[peerlist.getDeviceList().size()];
                 int index = 0;
-
                 Toast.makeText(getApplicationContext(), "Accessing Peers", Toast.LENGTH_SHORT).show();
 
 
@@ -93,23 +104,31 @@ public class wifiMVC extends MenuDemo {
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, deviceNameArray);
                 listView.setAdapter(adapter);
 
-                final WifiP2pDevice device = deviceArray[0];
-                WifiP2pConfig config = new WifiP2pConfig();
-                config.deviceAddress = device.deviceAddress;
 
-                pManager.connect(pChannel, config, new WifiP2pManager.ActionListener() {
-                    @Override
-                    public void onSuccess() {
+                if (deviceArray[0] != null && count == 0) {
 
-                        Toast.makeText(getApplicationContext(), "Auto Connection established with" + device.deviceName, Toast.LENGTH_SHORT).show();
-                    }
 
-                    @Override
-                    public void onFailure(int reason) {
+                    final WifiP2pDevice device = deviceArray[0];
+                    WifiP2pConfig config = new WifiP2pConfig();
+                    config.deviceAddress = device.deviceAddress;
 
-                        Toast.makeText(getApplicationContext(), "Auto connection failed", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    pManager.connect(pChannel, config, new WifiP2pManager.ActionListener() {
+                        @Override
+                        public void onSuccess() {
+
+                            Toast.makeText(getApplicationContext(), "Auto Connection established with" + device.deviceName, Toast.LENGTH_SHORT).show();
+                            disable();
+                        }
+
+                        @Override
+                        public void onFailure(int reason) {
+
+                            Toast.makeText(getApplicationContext(), "Auto connection failed", Toast.LENGTH_SHORT).show();
+                            count = 0;
+                        }
+                    });
+                }
+
 
             }
 
