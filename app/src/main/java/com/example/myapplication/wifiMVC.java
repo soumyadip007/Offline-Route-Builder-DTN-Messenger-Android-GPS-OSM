@@ -52,21 +52,8 @@ public class wifiMVC extends MenuDemo {
     ServerClass serverClass;
     ClientClass clientClass;
     SendReceive sendReceive;
-    Handler handler = new Handler(new Handler.Callback() {
-        @Override
-        public boolean handleMessage(Message msg) {
 
-            switch (msg.what) {
-                case MESSAGE_READ:
-                    byte[] readbuff = (byte[]) msg.obj;
-                    String tmpMsg = new String(readbuff, 0, msg.arg1);
-                    read_msg_box.setText(tmpMsg);
-                    break;
 
-            }
-            return true;
-        }
-    });
 
 
     WifiP2pManager.PeerListListener peerListListener = new WifiP2pManager.PeerListListener() {
@@ -277,6 +264,22 @@ public class wifiMVC extends MenuDemo {
 
     }
 
+    Handler handler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+
+            switch (msg.what) {
+                case MESSAGE_READ:
+                    byte[] readbuff = (byte[]) msg.obj;
+                    String tmpMsg = new String(readbuff, 0, msg.arg1);
+                    read_msg_box.setText(tmpMsg);
+                    break;
+
+            }
+            return true;
+        }
+    });
+
     private class SendReceive extends Thread {
 
         private Socket socket;
@@ -347,6 +350,7 @@ public class wifiMVC extends MenuDemo {
     }
 
     public class ClientClass extends Thread {
+
         Socket socket;
         String hostAdd;
 
@@ -390,4 +394,3 @@ public class wifiMVC extends MenuDemo {
      }
 
  }*/
-
