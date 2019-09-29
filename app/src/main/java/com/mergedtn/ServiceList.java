@@ -1,4 +1,4 @@
-package MergerDTN;
+package com.mergedtn;
 /*
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,6 +15,8 @@ package MergerDTN;
  */
 
 import android.net.wifi.p2p.WifiP2pDevice;
+
+import com.example.myapplication.WiFiServiceDiscoveryActivity;
 
 import java.util.ArrayList;
 import java.util.List;

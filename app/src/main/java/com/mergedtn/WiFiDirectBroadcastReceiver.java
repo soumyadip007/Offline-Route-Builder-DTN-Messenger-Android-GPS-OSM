@@ -1,4 +1,4 @@
-package MergerDTN;
+package com.mergedtn;
 
 /*
  * Copyright (C) 2011 The Android Open Source Project
@@ -26,6 +26,8 @@ import android.net.wifi.p2p.WifiP2pManager;
 import android.net.wifi.p2p.WifiP2pManager.Channel;
 import android.net.wifi.p2p.WifiP2pManager.ConnectionInfoListener;
 import android.util.Log;
+
+import com.example.myapplication.WiFiServiceDiscoveryActivity;
 
 /**
  * A BroadcastReceiver that notifies of important wifi p2p events.

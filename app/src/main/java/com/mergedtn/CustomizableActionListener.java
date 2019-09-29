@@ -1,4 +1,4 @@
-package MergerDTN;
+package com.mergedtn;
 
 /*
  *
@@ -17,9 +17,10 @@ package MergerDTN;
 
 import android.content.Context;
 import android.net.wifi.p2p.WifiP2pManager;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 public class CustomizableActionListener implements WifiP2pManager.ActionListener {
 

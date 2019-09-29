@@ -1,4 +1,4 @@
-package MergerDTN;
+package com.mergedtn;
 
 
 import android.app.ListFragment;
@@ -67,7 +67,7 @@ public class WiFiDirectServicesList extends ListFragment {
 
     }
 
-    interface DeviceClickListener {
+    public interface DeviceClickListener {
         void connectP2p(WiFiP2pService wifiP2pService);
     }
 

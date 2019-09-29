@@ -8,7 +8,8 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.osmdroid.DefaultResourceProxyImpl;
 import org.osmdroid.ResourceProxy;
@@ -45,7 +46,7 @@ public class mapinit extends AppCompatActivity {
         DatabaseSQLite obj=new DatabaseSQLite(this);
         db=obj.getReadableDatabase();
 
-        String projection[]={"time","lat","longi"};
+        String[] projection = {"time", "lat", "longi"};
 
         Cursor c=db.query("first1",projection,null,null,null,null,null);
 

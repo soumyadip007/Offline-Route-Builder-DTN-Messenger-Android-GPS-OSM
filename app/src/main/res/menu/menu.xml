@@ -14,13 +14,18 @@
         android:title="View" />
     <item
 
-        android:id="@+id/dump"
-        android:orderInCategory="102"
-        android:title="Offline text" />
+        android:id="@+id/dtn"
+        android:orderInCategory="103"
+        android:title="DTN Messenger" />
+ <item
+
+     android:id="@+id/dump"
+     android:orderInCategory="105"
+     android:title="Offline text(Beta)" />
     <item
 
         android:id="@+id/map"
-        android:orderInCategory="103"
+        android:orderInCategory="102"
         android:title="Route-builder" />
 
 </menu>

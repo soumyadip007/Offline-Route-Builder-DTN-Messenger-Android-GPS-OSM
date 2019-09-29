@@ -25,7 +25,7 @@
             android:layout_weight="0.90"
             android:focusableInTouchMode="true"
             android:hint="@string/txt_hint"
-            android:visibility="visible"></EditText>
+            android:visibility="visible" />
     </LinearLayout>
 
     <ListView

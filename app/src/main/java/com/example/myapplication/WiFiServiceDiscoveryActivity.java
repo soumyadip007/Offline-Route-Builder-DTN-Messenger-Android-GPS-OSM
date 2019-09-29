@@ -1,6 +1,5 @@
-package MergerDTN;
+package com.example.myapplication;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -30,7 +29,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.R;
+import com.mergedtn.ChatManager;
+import com.mergedtn.ClientSocketHandler;
+import com.mergedtn.GroupOwnerSocketHandler;
+import com.mergedtn.ServiceList;
+import com.mergedtn.WiFiChatFragment;
+import com.mergedtn.WiFiDirectBroadcastReceiver;
+import com.mergedtn.WiFiDirectServicesList;
+import com.mergedtn.WiFiP2pService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,7 +57,7 @@ import java.util.Map;
  * {@code WiFiChatFragment} is then added to the the main activity which manages
  * the interface and messaging needs for a chat session.
  */
-public class WiFiServiceDiscoveryActivity extends Activity implements
+public class WiFiServiceDiscoveryActivity extends MenuDemo implements
         WiFiDirectServicesList.DeviceClickListener, Handler.Callback, /*MessageTarget,*/
         ConnectionInfoListener {
 

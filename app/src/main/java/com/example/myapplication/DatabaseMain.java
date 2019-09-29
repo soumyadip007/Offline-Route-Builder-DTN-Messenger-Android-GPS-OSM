@@ -1,14 +1,10 @@
 package com.example.myapplication;
 
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class DatabaseMain extends MenuDemo {
 
@@ -21,7 +17,7 @@ public class DatabaseMain extends MenuDemo {
         SQLiteDatabase db;
 
 
-      t = (TextView) findViewById(R.id.textt);
+      t = findViewById(R.id.textt);
 
       DatabaseSQLite obj=new DatabaseSQLite(this);
 //        db=obj.getWritableDatabase();
@@ -35,7 +31,7 @@ public class DatabaseMain extends MenuDemo {
 
         db=obj.getReadableDatabase();
 
-        String projection[]={"time","lat","longi"};
+      String[] projection = {"time", "lat", "longi"};
 
         Cursor c=db.query("first1",projection,null,null,null,null,null);
 

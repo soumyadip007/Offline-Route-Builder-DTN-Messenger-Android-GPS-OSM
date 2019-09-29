@@ -1,4 +1,4 @@
-package MergerDTN;
+package com.mergedtn;
 
 import android.os.Handler;
 import android.util.Log;

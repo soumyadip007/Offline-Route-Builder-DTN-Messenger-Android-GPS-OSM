@@ -1,4 +1,4 @@
-package MergerDTN;
+package com.mergedtn;
 
 
 import android.app.Fragment;
@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.WiFiServiceDiscoveryActivity;
 
 import java.util.ArrayList;
 import java.util.List;

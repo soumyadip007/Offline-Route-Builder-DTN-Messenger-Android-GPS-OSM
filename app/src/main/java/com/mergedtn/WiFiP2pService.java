@@ -1,4 +1,4 @@
-package MergerDTN;
+package com.mergedtn;
 
 /**
  * A structure to hold service information.

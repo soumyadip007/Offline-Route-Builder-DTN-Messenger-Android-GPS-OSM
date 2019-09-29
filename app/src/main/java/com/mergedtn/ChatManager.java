@@ -1,8 +1,10 @@
-package MergerDTN;
+package com.mergedtn;
 
 
 import android.os.Handler;
 import android.util.Log;
+
+import com.example.myapplication.WiFiServiceDiscoveryActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
