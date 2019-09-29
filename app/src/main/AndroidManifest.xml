@@ -51,6 +51,7 @@
         <activity android:name=".DatabaseMain" />
         <activity android:name=".MenuDemo" />
         <activity android:name=".mapinit" />
+        <activity android:name=".WiFiServiceDiscoveryActivity" />
     </application>
 
 </manifest>

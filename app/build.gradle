@@ -27,8 +27,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
     implementation files('libs/osmdroid-android-3.0.10.jar')
     implementation files('libs/slf4j-android-1.5.8.jar')
+
+    annotationProcessor 'org.projectlombok:lombok:1.16.8'
+    compileOnly 'org.projectlombok:lombok:1.16.8'
+
 }
